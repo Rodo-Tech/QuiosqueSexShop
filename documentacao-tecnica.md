@@ -1,11 +1,11 @@
 
 
-> Ãrea - Digital Analytics<br />
-> Documento de Especificaçãoo Técnica - Quiosque Sex Shop
+> Digital Analytics<br />
+> Documento de Especificação Técnica - Quiosque Sex Shop
 <br />
 
 ## Implementação da Camada de dados
-Ultima atualização: 20/06/2022 <br />
+Ultima atualização: 50/06/2022 <br />
 
 <br />
 
@@ -239,20 +239,37 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
 
 <br />
 
-**RODOLFOOOOOOOOOOO**<br />
+**No clique em "Buscar".**<br />
 
-- **Onde:** Acervo
-    - **Titulo ou nome do botão/link:** &quot;Acervo&quot; e etc
+- **Onde:** Em todas as páginas em que estiverem disponíveis.
     
 ```html
 <script>
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     'event': 'event',
-    'eventCategory': 'bvirtual:acervo',
-    'eventAction': 'clique:categoria',
-    'eventLabel': '[[nome-categoria]]%',
-    'noInteraction': '1',
+    'eventCategory': 'quiosquesexshop:geral',
+    'eventAction': 'clique:busca',
+    'eventLabel': 'buscar',
+  });
+</script>
+```
+
+<br />
+
+**No clique dos elementos do footer da página.**
+<br />
+
+- **Onde:** Em todas as páginas em que estiverem disponíveis.
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:geral',
+    'eventAction': 'clique:footer',
+    'eventLabel': '[[nome-item]]',
   });
 </script>
 ```
@@ -260,8 +277,262 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
 
 | Variável        | Exemplo                               | Descrição                         |
 | :-------------- | :------------------------------------ | :-------------------------------- |
-| [[nome-categoria]] | &#039;Categoria&#039;, &#039;Subcategoria&#039; e &#039;Editora&#039; | Deve retornar o nome do link clicados. |
+| [[nome-item]] |   'termos-de-pesquisa' , 'politica-de-privacidade-e-cookies' , 'pesquisa-avancada' , 'fale-conosco' , 'assinar' e etc.   | Deve retornar o nome do item clicado do footer.  |
 
+
+<br />
+
+**Ao preencher o campo de "Digite se e-mail' no footer.**
+<br />
+
+- **Onde:** Em todas as páginas em que estiverem disponíveis.
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:geral',
+    'eventAction': 'preencheu:campo',
+    'eventLabel': 'e-mail',
+  });
+</script>
+```
+
+<br />
+
+**Ao clicar nos botoes de chatbox e whatsapp para contato.**
+<br />
+
+- **Onde:** Em todas as páginas em que estiverem disponíveis.
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:geral',
+    'eventAction': 'clique:botao',
+    'eventLabel': '[[nome-botao]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]] |  'chatbox' ou 'whatsapp'   | Deve retornar o nome do botao clicado pelo usuario.  |
+
+
+<br />
+
+
+### Home
+
+<br />
+
+**No clique do banner disponiveis.**
+<br />
+
+- **Onde:** Na home
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:home',
+    'eventAction': 'clique:banner',
+    'eventLabel': '[[nome-banner]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-banner]] |  'sex-free-masturbador' , 'gel-comestivel' e etc.    | Deve retornar o nome do banner clicado pelo usuario.   |
+
+
+<br />
+
+**No clique do icone para mudar banner.**
+<br />
+
+- **Onde:** Na home
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:home',
+    'eventAction': 'clique:icone',
+    'eventLabel': 'banner:[[nome-icone]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-icone]] |  'seta-direita' ou 'seta-esquerda'   | Deve retornar se o nome do item clicado pelo usuario.   |
+
+
+<br />
+
+**No clique dos cards disponiveis.**
+<br />
+
+- **Onde:** Na home
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:home',
+    'eventAction': 'clique:card',
+    'eventLabel': '[[nome-card]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-card]] |  'meltesao-estimulante-sexual-unissex' , 'egg-masturbador-attractive' , 'vibrador-e-estimulador' e etc.    | Deve retornar o nome do card clicado pelo usuario.   |
+
+
+<br />
+
+**No clique dos botoes disponiveis dentro dos cards.**
+<br />
+
+- **Onde:** Na home
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:home',
+    'eventAction': 'clique:botao',
+    'eventLabel': '[[nome-botao]]:[[nome-card]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]] |  'adicionarao-carrinho' , 'adicionar-para-comprar' e etc.  | Deve retornar o nome do botao clicado pelo usuario.   |
+| [[nome-card]] |  'meltesao-estimulante-sexual-unissex' , 'egg-masturbador-attractive' , 'vibrador-e-estimulador' e etc. | Deve retornar o nome do card clicado pelo usuario. |
+
+
+<br />
+
+**No clique do icone para mudar os cards.**
+<br />
+
+- **Onde:** Na home
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:home',
+    'eventAction': 'clique:icone',
+    'eventLabel': 'card:[[nome-icone]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-icone]] |  'seta-direita' ou 'seta-esquerda'   | Deve retornar se o nome do item clicado pelo usuario.   |
+
+
+<br />
+
+**Na visualização do modal.**
+<br />
+
+- **Onde:** Na home
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:home',
+    'eventAction': '[[abrir-fechar]]',
+    'eventLabel': 'modal-carrinho',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[abrir-fechar]] |   'abriu' ou 'fechou'   | Deve retornar quando o usuario abrir ou fechar o modal.   |
+
+<br />
+
+**No clique do botes ou links disponiveis no modal de Meu carrinho.**
+<br />
+
+- **Onde:** Na home
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:home',
+    'eventAction': 'clique:[[botao-link]]',
+    'eventLabel': 'modal-carrinho:[[nome-item]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[botao-link]] |   'botao' ou 'link'  | Deve retornar se é um botao ou link.  |
+| [[nome-item]] |   'avancar-para-o-checkout' , 'ver-e-editar-carrinho' , 'excluir' e etc.   | Deve retornar o nome do item clicado pelo usuario.  |
+
+<br />
+
+**No preenchimento do campo de quantidade do produto no modal de carrinho.**
+<br />
+
+- **Onde:** Na home
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:home',
+    'eventAction': 'preencheu:[[nome-campo]]',
+    'eventLabel': '[[valor-preenchido]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-campo]] |   'qtd' e etc   | Deve retornar o nome do campo que o usuario esta preenchendo.  |
+| [[valor-preenchido]] |  '3' , '2' , '1' e etc.  | Deve retornar com o valor preenchido pelo usuario.  |
+
+
+<br />
+
+### Geral
 
 <br />
 
@@ -269,11 +540,13 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
 
 
 
-### Product Click:Minhas Listas
 
-**No clique em Menu **<br /> 
 
-- **Onde:** Minhas Listas
+
+
+**ECOOMERCEEEEEEEEEEEEEE**<br /> 
+
+- **Onde:** Em todas as páginas em que estiverem disponíveis.
 
 ```html
 <script>
@@ -540,7 +813,6 @@ dataLayer.push({
 > 7. [Enhanced Ecommerce - Checkout](https://developers.google.com/tag-manager/enhanced-ecommerce#checkout)
 > 8. [Enhanced Ecommerce - Purchase](https://developers.google.com/tag-manager/enhanced-ecommerce#purchases)
 
-> Em caso de dúvidas, entrar em contato com: [](mailto:@zoly.com.br)
  
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
