@@ -1,11 +1,11 @@
 
 
 > Ãrea - Digital Analytics<br />
-> Documento de EspecificaÃ§Ã£o TÃ©cnica - Quiosque Sex Shop
+> Documento de Especificaçãoo Técnica - Quiosque Sex Shop
 <br />
 
-## ImplementaÃ§Ã£o da Camada de dados
-Ãšltima atualizaÃ§Ã£o: 20/06/2022 <br />
+## Implementação da Camada de dados
+Ultima atualização: 20/06/2022 <br />
 
 <br />
 
