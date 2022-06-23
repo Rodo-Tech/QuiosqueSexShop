@@ -532,9 +532,489 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
 
 <br />
 
-### Geral
+### Produto 
+<br />
+
+**No clique dos botoes ou links disponiveis**
+<br />
+
+- **Onde:** Nas páginas de produto
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:produto',
+    'eventAction': 'clique:[[botao-link]]',
+    'eventLabel': '[[nome-item]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[botao-link]]  |   'botao' ou 'link'   | Deve retornar se é um botao ou link.  |
+| [[nome-item]] |  'adicionar-ao-carrinho' , 'obter-cotacao' , 'inicio' , 'selecionar-tudo' e etc.   | Deve retornar o nome do botao clicado pelo usuario.   |
+
 
 <br />
+
+**Ao preencher os campos disponiveis**
+<br />
+
+- **Onde:** Nas páginas de produto
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:produto',
+    'eventAction': 'preencheu:campo',
+    'eventLabel': '[[valor-preenchido]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[valor-preenchido]]  |    '1' , '2' , '5' , '10' e etc.    | Deve retornar o valor preenchido pelo usuario.   |
+
+
+<br />
+
+**Ao preencher os campos de CEP**
+<br />
+
+- **Onde:** Nas páginas de produto
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:produto',
+    'eventAction': 'preencheu:campo',
+    'eventLabel': 'cep',
+  });
+</script>
+```
+
+<br />
+
+**No clique dos cards disponiveis**
+<br />
+
+- **Onde:** Nas páginas de produto
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:produto',
+    'eventAction': 'clique:card',
+    'eventLabel': '[[nome-card]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-card]]  |     'meltesao-estimulante-sexual-unissex' , 'egg-masturbador-attractive' , 'vibrador-e-estimulador' e etc.    | Deve retornar o nome do card clicado pelo usuario.   |
+
+
+<br />
+
+**No clique dos checkbot disponiveis dentro dos cards para selecionar o produto**
+<br />
+
+- **Onde:** Nas páginas de produto
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:produto',
+    'eventAction': 'clique:checkbox',
+    'eventLabel': '[[nome-card]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-card]]  |     'meltesao-estimulante-sexual-unissex' , 'egg-masturbador-attractive' , 'vibrador-e-estimulador' e etc.    | Deve retornar o nome do card clicado pelo usuario.   |
+
+
+<br />
+
+**No clique dos botoes disponiveis no modal apos adicionar produto ao carrinho**
+<br />
+
+- **Onde:** Nas páginas de produto
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:produto',
+    'eventAction': 'clique:modal',
+    'eventLabel': '[[nome-botao]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]]  |   'ver-carrinho' , 'continue-comprando' ,  'fechar' e etc.   | Deve retornar o nome do botao clicado pelo usuario.    |
+
+
+<br />
+
+### Produto 
+<br />
+
+**No clique para abrir ou fechar os acordions do filtro lateal**
+<br />
+
+- **Onde:** Sempre que estiver disponivel
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:acordion',
+    'eventLabel': '[[abrir-fechar]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[abrir-fechar]]  |   'abriu' ou 'fechou'  | Deve retornar se o acordion abriu ou fechou.  |
+
+
+<br />
+
+**No clique dos checkbox de pedidos feitos recentementes**
+<br />
+
+- **Onde:** Na area logada apos ja ter efetuado uma compra recentemente
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:checkbox',
+    'eventLabel': '[[secao]]:[[nome-checkbox]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+|  [[secao]]:[[nome-checkbox]]  |   'pedidos-feitos-recentemente:egg-masturbador' e etc.   | Deve retornar a secao que o checkbox esta em seguida do nome selecionado.  |
+
+
+<br />
+
+**No clique dos botoes ou links apos selecionar o checkbox de pedidos feitos recentemente**
+<br />
+
+- **Onde:** Na area logada apos ja ter efetuado uma compra recentemente
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:[[botao-link]]',
+    'eventLabel': '[[secao]]:[[nome-item]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+|  [[botao-link]]  |   'botao' ou 'link'  |  Deve retornar se é um botao ou link.   |
+|  [[secao]]:[[nome-item]]  |    'pedidos-feitos-recentemente:comprar' , ''pedidos-feitos-recentemente:ver-tudo'   |  Deve retornar a secao que o checkbox esta em seguida do item clicado.    |
+
+<br />
+
+**No clique dos accordions do filtro lateal (Opções de Compra)**
+<br />
+
+- **Onde:** Sempre que estiver disponivel
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:acordion',
+    'eventLabel': '[[nome-secao]]:[[nome-accordion]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+|  [[nome-secao]]:[[nome-accordion]] |  'cosmeticos:categoria' . 'vibradores:preco' , 'vibradores:cor' e etc.   |   Deve retornar a seçao na qual o suario esta em seguida do accordion clicado.    |
+
+<br />
+
+**No clique dos links dentro dos acordions do filtro lateral**
+<br />
+
+- **Onde:** Sempre que estiver disponivel
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:acordion',
+    'eventLabel': '[[nome-secao]]:[[nome-acordion]]:[[nome-link]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+|  [[nome-secao]]:[[nome-acordion]]:[[nome-link]] |  'cosmeticos:categoria' , 'vibradores:'cor:rosa , 'cosmeticos:categoria:comestiveis:' e etc.   |  Deve retornar a seçao na qual o suario esta em seguida do acordio e link clicados.   |
+
+<br />
+
+**No clique do icone para definir o modo de exibição**
+<br />
+
+- **Onde:** Sempre que estiver disponivel
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:icone',
+    'eventLabel': '[[nome-icone]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-icone]] | 'grade' , 'lista' , 'direcao-crescente' , direcao-decrescente' e etc.    |  Deve retornar o nome do icone clicado pelo usuario.  |
+
+<br />
+
+**No clique do acordion para ordenar a exibição**
+<br />
+
+- **Onde:** Sempre que estiver disponivel
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:acordion',
+    'eventLabel': '[[nome-item]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-item]] |  'position' , 'nome-do-produto' , 'preco' e etc.     |  Deve retornar o nome do item clicado pelo usuario.  |
+
+<br />
+
+**No clique dos cards disponiveis **
+<br />
+
+- **Onde:** Sempre que estiver disponivel
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:card',
+    'eventLabel': '[[nome-secao]]:[[nome-card]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-secao]]:[[nome-card]] |   'cosmeticos:gel-beijavel' . 'vibradores:capsula-vibratoria-rosa' e etc.      |  Deve retornar o nome da secao em que o usuario esta em seguida do nome do card.   |
+
+<br />
+
+**No clique dos botoes ou links disponiveis nos cards**
+<br />
+
+- **Onde:** Sempre que estiver disponivel
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:[[botao-link]]',
+    'eventLabel': '[[nome-secao]]:[[nome-card]]:[[nome-item]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[botao-link]] |   'botao' ou 'link'    |  Deve retornar se é um botao ou um link.   |
+| [[nome-secao]]:[[nome-card]]:[[nome-item]] |   cosmeticos:gel-beijavel:adicionar-ao-carrinho' . 'vibradores:capsula-vibratoria-rosa:ir-para-o-produto' e etc.    |  Deve retornar conforme a interação do usuario.    |
+
+
+<br />
+
+**No clique do link ou icone para limpar o filtro**
+<br />
+
+- **Onde:** Sempre que estiver disponivel
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:i[[link-icone]]',
+    'eventLabel': '[[nome-item]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[link-icone]] |   'link' ou 'icone'   |  Deve retornar se é um link ou um icone.  |
+| [[nome-item]] |    'limpar-tudo' , 'fechar' e etc.   |  Deve retornar o nome do item clicado pelo usuario.    |
+
+
+<br />
+
+**No clique do acordion para exibição de produto por pagina**
+<br />
+
+- **Onde:** Sempre que estiver disponivel
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:submenu',
+    'eventAction': 'clique:acordion',
+    'eventLabel': '[[nome-secao]]:[[valor-exibicao]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-secao]]:[[valor-exibicao]]  |  acessorios:40' , 'vibradores:60' e etc.   |  Deve retornar a secao em que o usuario esta em seguida do valor escolhido para a exibicao dos produtos por pagina.  |
+
+
+<br />
+
+### Produto 
+<br />
+
+**Na interação com os campos de "e-mail e senha"**
+<br />
+
+- **Onde:** Na página de Login
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:login',
+    'eventAction': 'interacao:campo:[[nome-secao]]',
+    'eventLabel': 'preencheu:[[nome-campo]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-secao]]  |  'cliente-registrado'   | Deve retornar o nome da seção que o usuário está interagindo.  |
+| [[nome-campo]] |  'email', 'senha' e etc  | Deve retornar o nome do campo preenchido.   |
+
+
+<br />
+
+### Login e Cadastro
+
+<br />
+
+**Após clicar no botão "Entrar" para validar os campos preenchidos**
+<br />
+
+- **Onde:** Na página de Login
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:login',
+    'eventAction': 'envio:callback',
+    'eventLabel': '[[sucesso ou tipo-de-erro]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-secao]]  |  'cliente-registrado'   | Deve retornar o nome da seção que o usuário está interagindo.  |
+| [[nome-campo]] |  'email', 'senha' e etc  | Deve retornar o nome do campo preenchido.   |
+
+
+<br />
+
+
 
 
 
