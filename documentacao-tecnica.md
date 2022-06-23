@@ -1670,6 +1670,223 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
 
 <br />
 
+### Checkout 
+
+<br />
+
+**No clique do acordions para visualizar os itens do carrinho**
+<br />
+
+- **Onde:** Na página de checkout - Frete
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'clique:acordion',
+    'eventLabel': '[[nome-acordion]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-acordion]]  |   'itens-no-carrinho' e etc.    |  Deve retornar o nome do acordion clicado pelo usuario.   |
+
+<br />
+
+**No click do checkbox para selecionar modo de envio**
+<br />
+
+- **Onde:** Na página de checkout - Frete
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'clique:checkbox',
+    'eventLabel': '[[secao]]:[[nome-checkbox]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[secao]]  |   'metodos-de-envio" e etc.     |  Deve retornar o nome da secao.   |
+| [[nome-checkbox]] | 'sedex' , 'pac' e etc.   |  Deve retornar o valor do checkbox clicado pelo usuario.    |
+
+
+<br />
+
+**No click dos botoes disponiveis na pagina**
+<br />
+
+- **Onde:** Na página de checkout - Frete
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'clique:botao',
+    'eventLabel': '[[nome-botao]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]] |   'novo-endereco' , 'proximo' e etc.     |  Deve retornar o nome do botao clicado pelo usuario.    |
+
+<br />
+
+**Ao visualizar o modal de Endereço de Entrega**
+<br />
+
+- **Onde:** Na página de checkout - Frete
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': '[[abrir-fechar]]',
+    'eventLabel': '[[nome-modal]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[abrir-fechar]] |   'novo-endereco' , 'proximo' e etc.     |  Deve retornar se o usuario abriu ou fechou o modal.  |
+| [[nome-modal]] |   'endereco-de-entrega' e etc.     |  Deve retornar o nome do modal.   |
+
+<br />
+
+**Na interacao com os campos do modal de Endereco de Entrega**
+<br />
+
+- **Onde:** Na página de checkout - Frete
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'preencheu-campo',
+    'eventLabel': '[[nome-campo]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-campo]] |  'endereco' , 'numero' , 'complemento' , 'bairro' e etc   |  Deve retornar o nome do campo interagido pelo usuario.  |
+
+<br />
+
+**No clique dos acordions para selecionar Estado e Pais**
+<br />
+
+- **Onde:** Na página de checkout - Frete
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'clique:accordion',
+    'eventLabel': '[[nome-campo]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-campo]] |  'estado' , 'pais' e etc.    |  Deve retornar o nome do campo interagido pelo usuario.  |
+
+<br />
+
+**No clique dos botoes disponiveis no modal de Endereco de Entrega**
+<br />
+
+- **Onde:** Na página de checkout - Frete
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'clique:modal:botao',
+    'eventLabel': '[[nome-botao]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]] |   'cancelar' , 'ship-here' e etc.   |  Deve retornar o nome do botao clicado pelo usuario.  |
+
+<br />
+
+**No clique de qualquer botao disponivel na pagina**
+<br />
+
+- **Onde:** Na página de checkout - revisao e pagamento
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'clique:botao',
+    'eventLabel': '[[secao]]:[[nome-botao]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]] |   'cancelar' , 'ship-here' e etc.   |  Deve retornar o nome do botao clicado pelo usuario.  |
+
+<br />
+
+**No clique dos checkbox disponiveis na pagina**
+<br />
+
+- **Onde:** Na página de checkout - revisao e pagamento
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'clique:checkbox',
+    'eventLabel': '[[secao]]:[[nome-checkbox]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[secao]] |   'metodos-de-envio" e etc.    |  Deve retornar o nome da secao.   |
+| [[nome-checkbox]] |  'pix' , 'cartao-de-credito' , 'picpay' , 'boleto-bancario' e etc.   |  Deve retornar o valor do checkbox clicado pelo usuario.  |
+
+<br />
+
+
+
 
 
 
