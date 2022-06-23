@@ -1885,264 +1885,54 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
 
 <br />
 
-
-
-
-
-
-**ECOOMERCEEEEEEEEEEEEEE**<br /> 
-
-- **Onde:** Em todas as páginas em que estiverem disponíveis.
-
-```html
-<script>
-dataLayer.push({
-  'event': 'productClick',
-  'eventCategory': 'bvirtual:minhas_listas',
-  'eventAction': 'clique:link',
-  'eventLabel': '[[nome-link]]',
-  'ecommerce': {
-    'click': {
-      'actionField': {'list': '[[lista-livro]]'},
-      'products': [{
-        'name': '[[nome-livro]]',       //Nome ou ID do produto é obrigatório
-        'id': '[[id-livro]]',
-        'price': '[[preco-livro]]',
-        'brand': '[[marca-livro]]',
-        'category': '[[categoria-livro]]',
-        'variant': '[[variacao-livro]]',
-        'position': '[[posicao-livro]]'
-      }]
-    }
-  }
-});
-</script>
-```
-
+**Ao clicar nos acordions disponiveis na pagina**
 <br />
 
-**Catálogo - Produtos**
-
-<br />
-
-| Variável        | Exemplo                               | Descrição                         |
-| :-------------- | :------------------------------------ | :-------------------------------- |
-| [[nome-link]] | &#039;Minhas_listasvejo&#039;, &#039;Continuar_lendo&#039; e etc | Nome da Lista |
-| [[nome-lista]]| &#039;Crias_nova_lista&#039; e etc | Direciona seua lista |
-| [[nome-lista]] | &#039;Onze-tons_de_felicidade&#039;e etc | Direciona livros selecionados |
-| [[nome-lista]]| &#039;Escola&#039;,&#Iphone&#039; | Modo de leitura |
-
-<br />
-
-
-
-**No clique do menu"**<br />
-
-- **Onde:** Em Continuar lendo
-
+- **Onde:** Na página de checkout - revisao e pagamento
+  
 ```html
 <script>
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     'event': 'event',
-    'eventCategory': 'bvirtual:continuar_lendo',
-    'eventAction': 'clique:link',
-    'eventLabel': '[[nome-link]]%',
-    'noInteraction': '1',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'clique:acordion:[[nome-acordion]]',
+    'eventLabel': '[[secao]]:[[nome-item]]',
   });
 </script>
 ```
-<br />
-
-**Catálogo - Produtos**
-
-<br />
 
 | Variável        | Exemplo                               | Descrição                         |
 | :-------------- | :------------------------------------ | :-------------------------------- |
-| [[nome-link]] | &#039;minhas_listas&#039;, &#039;continuar_lendo&#039; e etc | lista de livros |
-| [[nome-livro]]|  &#039;Espirito_empreendedor&#039;, &#039;Quimica_geral&#039; e etc e etc | Nome do livro |
-| [[nome-autor]] | &#039;Giselle_Dziura&#039; e etc | Nome do Autor |
-| [[nome-imagem]]| &#039;Espirito_empreendedor&#039;, &#039;Quimica_geral&#039; e etc | Nome do livro |
-
+| [[nome-acordion]] |   'meu-endereco-de-pagamento-e-entrega' , 'selecione-abaixo-pix-ou-carteira-digital' , 'itens-no-carrinho' e etc.  |  Deve retornar o nome do acordion clicado pelo usuario.    |
+| [[secao]]   |   'pix' , 'cartao-de-credito' , 'picpay' , 'boleto-bancario'e etc.  |  Deve retornar o nome da secao que o usuario clicou no botao.  |
+| [[nome-item]]   |   'pix' , 'mercado-pago' , 'picpay' , parcelas e etc.   |  Deve retornar o nome do iten selecionado do acordion.   |
 
 <br />
 
+**Na interacao com o campo de aplicar cupom**
+<br />
 
-
-**No clique em filtrar ** <br />
-
-- **Onde:** Cartoes de estudo.
-
+- **Onde:** Na página de checkout - revisao e pagamento
+  
 ```html
 <script>
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     'event': 'event',
-    'eventCategory': 'bvirtual:cartoes',
-    'eventAction': 'clique:filtrar',
-    'eventLabel': '[[valor-digitado]]%',
-    'noInteraction': '1',
+    'eventCategory': 'quiosquesexshop:checkout',
+    'eventAction': 'preencheu:campo',
+    'eventLabel': '[[valor-campo]]',
   });
 </script>
 ```
 
-<br />
-
-**Catálogo - Produtos**
-
-<br />
-
 | Variável        | Exemplo                               | Descrição                         |
 | :-------------- | :------------------------------------ | :-------------------------------- |
-| [[valor-digitado]]| &#039;Filtrar_por_palavra_chave&#039;e etc | Filtro por palavra chave |
-| [[nome-cartao]] |  &#039;Nome_do_cartao_criado&#039; e etc e etc | Nome do cartao |
-
-
-
-<br />
- 
-### No clique em Titulo do Livro Adicionado
- 
-- **Onde:** Destaque e Notas.
-
-```html
-<script>
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    'event': 'event',
-    'eventCategory': 'bvirtual:destaques',
-    'eventAction': 'clique:titulo',
-    'eventLabel': '[[nome-titulo]]%',
-    'noInteraction': '1',
-  });
-</script>
-```
-
-
-**Catálogo - Produtos**
+| [[valor-campo]] |   '10desconto' e etc.   |  Deve retornar o cupom que o usuario inseriu. |
 
 <br />
 
-| Variável        | Exemplo                               | Descrição                         |
-| :-------------- | :------------------------------------ | :-------------------------------- |
-| [[nome-titulo]]| &#039;Destaque&#039;, &#039;Notas&#039; e etc | Referencia sobre a leitura  |
-| [[nome-livro]] &#039;Sobre_gatos&#039;, &#039;Alcool_e_drogas&#039; e etc e etc | Nome do livro |
-| [[nome-autor]] | &#039;Lessing_Doris&#039; &#039;Guilherme_Messas&#039; e etc | Nome do autor|
-| [[nome-notas]] | &#039;Paginas_marcadas&#039;, &#039;Destaques&#039; , &#039;Notas&#039; e etc | LIvro acionado |
-
-
-<br />
- 
-### No clique do clique do menu
- 
-- **Onde:** sugestoes de leitura
- 
-```html
-<script>
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    'event': 'event',
-    'eventCategory': 'bvirtual:sugestoes',
-    'eventAction': 'clique:sugestao_de_leitura',
-    'eventLabel': '[[nome-link]]%',
-    'noInteraction': '1',
-  });
-</script>
-```
-
-<br />
- 
-
-**Catálogo - Produtos**
-
-<br />
-
-| Variável        | Exemplo                               | Descrição                         |
-| :-------------- | :------------------------------------ | :-------------------------------- |
-| [[nome-link]] | &#039;COntinuar_lendo&#039;, &#039;Livros_lidos&#039; e etc | Controle da leitura |
-| [[nome-livro]] |  &#039;Financas&#039;, &#039;Fundamentos_de_quimica&#039; e etc e etc | Nome do livro |
-| [[nome-autor]] | &#039;Valter_Pereira&#039; e etc | Nome do autor |
-| [[nome-livro]]| &#039;Adicionar_a_uma_lista&#039;, &#039;comprar_esse_livro&#039; e etc | Direcionamento do livro |
-
-
-<br />
- 
----
-
-<br />
- 
-### No clique do menu
- 
-- **Onde:** Livros lidos
- 
-```html
-<script>
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    'event': 'event',
-    'eventCategory': 'bvirtual:livros_lidos',
-    'eventAction': 'clique:livros_lidos',
-    'eventLabel': '[[nome-link]]%',
-    'noInteraction': '1',
-  });
-</script>
-```
-
-<br />
-
-**Catálogo - Produtos**
-
-<br />
-
-| Variável        | Exemplo                               | Descrição                         |
-| :-------------- | :------------------------------------ | :-------------------------------- |
-| [[nome-link]] | &#039;Continuar_lendo&#039;, &#039;Livros_lidos&#039; e etc | Situação do livro|
-| [[nome-livro]]|  &#039;Financas&#039;, &#039;Fundamentos_de_quimica&#039; e etc e etc | Nome do livro |
-| [[nome-autor]] | &#039;Valter_Pereira&#039; e etc | Nome do autor |
-| [[nome-livro]] | &#039;Ler_agora&#039;, &#039;Adicionar_a_uma_lista&#039;, &#039;comprar_esse_livro&#039; e etc | direcionamento do livro |
-
-
-<br />
- 
----
-
-<br />
- 
-### No clique em metas de leitura
- 
-- **Onde:** Metas de leitura
- 
-```html
-<script>
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    'event': 'event',
-    'eventCategory': 'bvirtual:metas',
-    'eventAction': 'clique:ativar',
-    'eventLabel': '[[botao-ativar]]%',
-    'noInteraction': '1',
-  });
-</script>
-```
-
-<br />
- 
-
-**Catálogo - Produtos**
-
-<br />
-
-| Variável        | Exemplo                               | Descrição                         |
-| :-------------- | :------------------------------------ | :-------------------------------- |
-| [[botao-ativar]] | &#039;Ativar_meta_de_leitura&#039;, &#039;Desativar_meta_de_leitura&#039; e etc | Status da meta de leitura |
-| [[valor-digitado]] |  &#039;Numero_de_paginas&#039; e etc e etc | Quantidade de paginas do livro |
-| [[valor-botao]]| &#039;Por_dia&#039;, &#039;Por_mes&#039;  e etc | Frequencia da leitura|
-| [[valor-botao]]| &#039;Segunda&#039;, &#039;Terca&#039;, &#039;Quarta&#039; e etc | Dias de folga de leitura |
-| [[nome-salvar]] | &#039;Sucesso&#039; | Salvar preferencias |
-
-
-<br />
  
 ---
  
