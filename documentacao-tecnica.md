@@ -5,7 +5,7 @@
 <br />
 
 ## Implementação da Camada de dados
-Ultima atualização: 50/06/2022 <br />
+Ultima atualização: 22/06/2022 <br />
 
 <br />
 
@@ -150,18 +150,11 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
 <script>
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    'event': 'event',
-    'eventCategory': ' ',
-    'eventAction': ' ',
-    'eventLabel': ' ' 
+    'event': 'page_view',
+  
   });
 </script>
 ```
-
-
-| Variável        | Exemplo                               | Descrição                         |
-| :-------------- | :------------------------------------ | :-------------------------------- |
-|  |   |  |
 
 <br />
 
@@ -999,8 +992,8 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
   window.dataLayer.push({
     'event': 'event',
     'eventCategory': 'quiosquesexshop:login',
-    'eventAction': 'envio:callback',
-    'eventLabel': '[[sucesso ou tipo-de-erro]]',
+    'eventAction': 'interacao:campo:[[nome-secao]]',
+    'eventLabel': 'preencheu:[[nome-campo]]',
   });
 </script>
 ```
@@ -1014,12 +1007,668 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
 
 <br />
 
+**Após clicar no botão "Entrar" para validar os campos preenchidos**
+<br />
+
+- **Onde:** Na página de Login
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:login',
+    'eventAction': 'envio:callback',
+    'eventLabel': '[[sucesso ou tipo-de-erro]]',
+  });
+</script>
+```
+
+<br />
 
 
+**No clique dos links de "Esqueci minha senha"**
+<br />
+
+- **Onde:** Na página de Login
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:login',
+    'eventAction': 'clique:link',
+    'eventLabel': '[[nome-link]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-link]]  | 'esqueceu-a-sua-senha'   | Deve retornar o nome do link clicado.  |
+
+<br />
+
+**No clique dos botoes disponiveis na pagina**
+<br />
+
+- **Onde:** Na página de Login
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:login',
+    'eventAction': 'clique:botao',
+    'eventLabel': '[[nome-botao]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]] |  'entrar' , 'criar-conta' e etc.  | Deve retornar o nome do botao que o usuario clicou.  |
+
+<br />
+
+**Na interação com os campos**
+<br />
+
+- **Onde:** Na página de cadastro
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:cadastro',
+    'eventAction': 'preencheu:campo',
+    'eventLabel': '[[nome-campo]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-campo]] |   'nome' , 'sobrenome' , 'cpf' , 'email' e etc.    | Deve retornar o nome do campo preenchido pelo usuario.  |
+
+<br />
+
+**Na interação com o botao de calendario**
+<br />
+
+- **Onde:** Na página de cadastro
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:cadastro',
+    'eventAction': 'clique:botao',
+    'eventLabel': 'calendario',
+  });
+</script>
+```
+
+<br />
 
 
+**Na interação com os itens no modal para definir a data de nascimento apos clicar no botao de calendario**
+<br />
+
+- **Onde:** Na página de cadastro
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:cadastro',
+    'eventAction': 'clique:item',
+    'eventLabel': '[[nome-item]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-item]] |  'acordion:mes' , 'acordion:ano' , 'seta:direita' , 'seta:esquerda'    |  Deve retornar o nome do item clicado pelo usuario.  |
+
+<br />
+
+**No clique do checkbox disponiveis na pagina**
+<br />
+
+- **Onde:** Na página de cadastro
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:cadastro',
+    'eventAction': 'clique:checkbox',
+    'eventLabel': '[[nome-checkbox]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-checkbox]] |   'assinar-newsletter' , 'nao-sou-robo' e etc.    | Deve retornar o nome do chackbox clicado pelo usuario.  |
+
+<br />
+
+**No clique do acordion para selecionar o genero**
+<br />
+
+- **Onde:** Na página de cadastro
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:cadastro',
+    'eventAction': 'clique:acordion',
+    'eventLabel': '[[nome-selecionado]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-selecionado]] |  'masculino' , 'feminino' , 'nao-especificado' e etc.     |  Deve retornar o genero selecionado pelo usuario.  |
+
+<br />
+
+**Após clicar no botão "Criar Conta" para validar os campos preenchidos**
+<br />
+
+- **Onde:** Na página de cadastro
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:cadastro',
+    'eventAction': 'envio:callback',
+    'eventLabel': '[[sucesso ou tipo-de-erro]]',
+  });
+</script>
+```
+
+<br />
 
 
+### Area Logada - Minha Conta
+
+<br />
+
+**No clique dos links disponiveis**
+<br />
+
+- **Onde:** Na pagina de minha conta
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:area-logada:minha-conta',
+    'eventAction': 'clique:link',
+    'eventLabel': '[[nome-link]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-link]] |  'editar' , 'alterar-senha' , 'editar-o-endereco' e etc.   | Deve retornar o nome do link clicado.   |
+
+
+<br />
+
+### Area Logada - Adicionar Novo Endereço 
+
+<br />
+
+**Na interação com os campos**
+<br />
+
+- **Onde:** Na página de Adicionar novo endereco
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:adicionar-novo-endereco',
+    'eventAction': 'preencheu:campo',
+    'eventLabel': '[[nome-campo]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-campo]] |  'nome' , 'sobrenome' , 'rua' , 'numero' , 'complemento' , 'bairro' e etc.    |  Deve retornar o nome do campo preenchido pelo usuario.   |
+
+
+<br />
+
+**No clique do acordion para selecionar o Estado e País**
+<br />
+
+- **Onde:** Na página de Adicionar novo endereco
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:adicionar-novo-endereco',
+    'eventAction': 'clique:acordion',
+    'eventLabel': '[[nome-campo]]:[[nome-selecionado]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-campo]]:[[nome-selecionado]] |  'estado:goias' , 'estado:sao-paulo' , 'pais:brasil' e etc    |  Deve retornar o nome do campo em seguida o nome selecionado pelo usuario.  |
+
+
+<br />
+
+**No clique do botao de "Salvar endereço"**
+<br />
+
+- **Onde:** Na página de Adicionar novo endereco
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:adicionar-novo-endereco',
+    'eventAction': 'clique:botao',
+    'eventLabel': 'salvar-endereco',
+  });
+</script>
+```
+
+<br />
+
+**Após clicar no botão "Salvar endereço" para validar os campos preenchidos**
+<br />
+
+- **Onde:** Na página de Adicionar novo endereco
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:adicionar-novo-endereco',
+    'eventAction': 'envio:callback',
+    'eventLabel': '[[sucesso ou tipo-de-erro]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[sucesso ou tipo-de-erro]] |  'sucesso' , 'erro:campo-obrigatorio' e etc.     |  Deve retornar sucesso ou tipo de erro ocorrido.   |
+
+
+<br />
+
+### Area Logada - Informações de Conta
+
+<br />
+
+**Na interação com os campos**
+<br />
+
+- **Onde:** Na página de informacoes de conta
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:informacoes-de-conta',
+    'eventAction': 'preencheu:campo',
+    'eventLabel': '[[nome-campo]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-campo]] |  'nome' , 'sobrenome' , 'cpf' , 'email' e etc.    |  Deve retornar o nome do campo preenchido pelo usuario.   |
+
+
+<br />
+
+
+**No clique do checkbox disponiveis na pagina**
+<br />
+
+- **Onde:** Na página de informacoes de conta
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:informacoes-de-conta',
+    'eventAction': 'clique:checkbox',
+    'eventLabel': '[[nome-checkbox]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-checkbox]] |  'alterar-e-mail' , 'alterar-senha' , 'nao-sou-robo' e etc.    |  Deve retornar o nome do chackbox clicado pelo usuario.    |
+
+
+<br />
+
+**No clique do acordion para selecionar o genero**
+<br />
+
+- **Onde:** Na página de informacoes de conta
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:informacoes-de-conta',
+    'eventAction': 'clique:acordion',
+    'eventLabel': '[[nome-selecionado]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-selecionado]] |  'masculino' , 'feminino' , 'nao-especificado' e etc.   |  Deve retornar o genero selecionado pelo usuario.     |
+
+
+<br />
+
+**No clique dos botoes disponiveis**
+<br />
+
+- **Onde:** Na página de informacoes de conta
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:informacoes-de-conta',
+    'eventAction': 'clique:botao',
+    'eventLabel': '[[[nome-botao]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]] |   'salvar' , 'delete-your-acount' e etc.   |  Deve retornar o nome do botao clicado pelo usuario.     |
+
+
+<br />
+
+**Após clicar no botão "Salvar" para validar os campos preenchidos**
+<br />
+
+- **Onde:** Na página de informacoes de conta
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:informacoes-de-conta',
+    'eventAction': 'envio:callback',
+    'eventLabel': '[[sucesso ou tipo-de-erro]]',
+  });
+</script>
+```
+
+<br />
+
+**Na visualização do modal para cancelar conta**
+<br />
+
+- **Onde:** Na página de informacoes de conta
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:informacoes-de-conta',
+    'eventAction': '[[abriu-fechou]]',
+    'eventLabel': '[[nome-modal]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[abriu-fechou]] |  abriu' ou 'fechou'   |  Deve retornar se o modal abriu ou fechou.    |
+| [[nome-modal]] |   'are-you-sure-you-to-delete-your-acount' e etc.  |   Deve retornar o nome do modal em que o usuario esta.     |
+
+<br />
+
+**No clique dos botoes no modal de cancelar conta**
+<br />
+
+- **Onde:** Na página de informacoes de conta
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:informacoes-de-conta',
+    'eventAction': 'clique:botao:modal',
+    'eventLabel': '[[nome-botao]] ',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]]  | 'cancel' , 'ok' e etc.   |  Deve retorar o nome do botao clicado pelo usuario.    |
+
+<br />
+
+### Area Logada - Assinar Newsletter
+
+<br />
+
+**No clique do checkbox disponivel**
+<br />
+
+- **Onde:** Na página de assinar newsletter
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:assinar-newsletter',
+    'eventAction': 'click:checkbox',
+    'eventLabel': '[[nome-checkbox]]',
+  });
+</script>
+```
+
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-checkbox]] |  'subscricao-geral' etc.    |  Deve retornar o nome do campo preenchido.  |
+
+
+<br />
+
+**No clique do botao de Salvar**
+<br />
+
+- **Onde:** Na página de assinar newsletter
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:assinar-newsletter',
+    'eventAction': 'clique:botao',
+    'eventLabel': 'salvar',
+  });
+</script>
+```
+
+<br />
+
+**Após clicar no botão "Salvar" para validar os campos preenchidos**
+<br />
+
+- **Onde:** Na página de assinar newsletter
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:assinar-newsletter',
+    'eventAction': 'envio:callback',
+    'eventLabel': '[[sucesso ou tipo-de-erro]]',
+  });
+</script>
+```
+
+<br />
+
+
+### Carrinho 
+
+<br />
+
+**Na interação com os campos de quantidade e cupom de desconto**
+<br />
+
+- **Onde:** Na página de carrinho 
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:assinar-carrinho',
+    'eventAction': 'interacao:campo:campo',
+    'eventLabel': '[[secao]]:[[nome-campo]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[secao]]:[[nome-campo]] |  'quantidade:1' , 'resumo:cep', 'cupom-de-desconto:inserir-cupom' e etc.    |  Deve retornar o nome da secao em seguida do campo preenchido.   |
+
+<br />
+
+**No clique dos acordions**
+<br />
+
+- **Onde:** Na página de carrinho 
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:assinar-carrinho',
+    'eventAction': 'clique:[[nome-acordion]]',
+    'eventLabel': '[[nome-campo]]:[[valor-selecionado]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-acordion]]  |  'consultar-valor-do-frete' , 'inserir-cupom' e etc.   |  Deve retornar o nome do acordion que o usuario clicou.  |
+| [[nome-campo]]:[[valor-selecionado]]  |   'pais:brasil' , 'estado:sao-paulo' e etc.   |  Deve retornar o nome do campo em seguida o valor selecionado.   |
+
+<br />
+
+**No click do checkbox para selecionar modo de envio**
+<br />
+
+- **Onde:** Na página de carrinho 
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:assinar-carrinho',
+    'eventAction': 'clique:checkbox',
+    'eventLabel': '[[nome-checkbox]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-checkbox]]  |   'sedex' , 'pac' e etc.   |  Deve retornar o valor do checkbox clicado pelo usuario.  |
+
+<br />
+
+**No click dos botoes disponiveis na pagina**
+<br />
+
+- **Onde:** Na página de carrinho 
+  
+```html
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'event',
+    'eventCategory': 'quiosquesexshop:assinar-carrinho',
+    'eventAction': 'clique:botao',
+    'eventLabel': '[[nome-botao]]',
+  });
+</script>
+```
+
+| Variável        | Exemplo                               | Descrição                         |
+| :-------------- | :------------------------------------ | :-------------------------------- |
+| [[nome-botao]]  |   'atualizar-carrinho-de-compras' , 'avancar-para-o-checkout' , 'editar' , 'excluir' e etc.    |  Deve retornar o nome do botao clicado pelo usuario.  |
+
+<br />
 
 
 
