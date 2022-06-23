@@ -10,7 +10,7 @@ Ultima atualização: 22/06/2022 <br />
 <br />
 
 ## Objetivo
-Este documento tem como objetivo instruir a implementação da camada de dados e de data attributes para utilização de recursos de monitoramento do Google Analytics referentes ao ambiente de [URL Produção: https://plataforma.bvirtual.com.br/](https://plataforma.bvirtual.com.br/).
+Este documento tem como objetivo instruir a implementação da camada de dados e de data attributes para utilização de recursos de monitoramento do Google Analytics referentes ao ambiente de [URL Produção: https://quiosquesexshop.com.br/](https://quiosquesexshop.com.br/).
 
 <br />
 
