@@ -1980,8 +1980,8 @@ dataLayer.push({
 
 | Nome 			| VariÃ¡vel 					| Exemplo 			| Descrição  				|
 | :------------	| :------------------------	| :----------------	| :-----------------------	|
-| id 			| [[id-transacao]] 			| 't-786545s'		| ID da TransaÃ§Ã£o			|
-| revenue 		| [[valor-total-transacao]] | '256.80'	 		| Valor total da transaÃ§Ã£o	|
+| id 			| [[id-transacao]] 			| 't-786545s'		| ID da Transação		|
+| revenue 		| [[valor-total-transacao]] | '256.80'	 		| Valor total da Transação	|
 
 <br />
 
@@ -1999,8 +1999,8 @@ dataLayer.push({
 
 ### Enhanced E-commerce
 
-- **Quando:** No carregamento da página de confirmação de pedido - Purchase
-- **Onde:** Na página de pedido
+- **Quando:** No carregamento de uma lista de produtos
+- **Onde:** Em todas as páginas que exibirem uma lista de produto
 
 ```html
 <script>
@@ -2017,7 +2017,7 @@ dataLayer.push({
        'category': 'vibradores',
        'variant': 'Gray',
        'list': 'Search Results',
-       'position': 1
+       'position': 1,
      },
      {
        'name': 'anel-peniano',
@@ -2027,7 +2027,7 @@ dataLayer.push({
        'category': 'acessorios',
        'variant': 'Black',
        'list': 'Search Results',
-       'position': 2
+       'position': 2,
      }]
   }
 });
@@ -2054,7 +2054,7 @@ dataLayer.push({
            'category': 'vibradores',
            'variant': 'Gray',
            'list': 'Search Results',
-           'position': 1n
+           'position': 1n,
          }]
        }
      },
@@ -2110,7 +2110,7 @@ dataLayer.push({
            'brand': 'Google',
            'category': 'vibradores',
            'variant': 'Gray',
-           'quantity': 1
+           'quantity': 1,
        }]
     }
   }
@@ -2137,7 +2137,7 @@ dataLayer.push({
            'brand': 'Google',
            'category': 'vibradores',
            'variant': 'Gray',
-           'quantity': 1
+           'quantity': 1,
       }]
     }
   }
@@ -2164,7 +2164,7 @@ dataLayer.push({
            'brand': 'Google',
            'category': 'vibradores',
            'variant': 'Gray',
-           'quantity': 1
+           'quantity': 1,
        }]
      }
    },
