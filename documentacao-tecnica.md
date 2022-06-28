@@ -5,7 +5,7 @@
 <br />
 
 ## Implementação da Camada de dados
-Ultima atualização: 22/06/2022 <br />
+Ultima atualização: 28/06/2022 <br />
 
 <br />
 
@@ -1933,7 +1933,271 @@ Caso a informação solicitada não estiver disponivel retornar o valor com tipa
 
 <br />
 
- 
+
+
+
+
+### Purchase
+
+
+- **Quando:** No carregamento da página de confirmação de pedido - Purchase
+- **Onde:** Na página de pedido
+
+```html
+<script>
+dataLayer.push({
+	'event': 'purchase',
+	'eventCategory': 'quiosquesexshop:purchase',
+	'eventAction': 'options-payment',
+	'eventLabel': 'installments:[[num parcelas]]',
+  'noInteraction':'1',
+	'ecommerce': {
+		'purchase': {
+			'actionField': {
+				'id': '[[id-transacao]]',				//ID da transação não obrigatorio
+				'revenue': '[[valor-total-transacao]]'
+			},
+			'products': [{
+				'name': '[[nome-produto]]',				//Nome ou ID do produto não obrigatorio
+				'id': '[[id-produto]]',
+				'price': '[[preco-produto]]',
+				'category': '[[categoria-produto]]'
+				'coupon': '[[cupom-produto]]'		//Em caso de cupom de desconto
+			}]
+		}
+	}
+});
+</script>
+```
+
+*VariÃ¡vel "eventLabel"*
+
+| Variavel 				| Exemplo 											| Descrição 														|
+| :--------------------	| :------------------------------------------------ | :---------------------------------------------------------------	|
+| [[num parcelas]]	| '1', '2', etc	| Deve retornar o numero de parcelas usadas no cartão.	|
+
+*Descrição Purchase:*
+
+| Nome 			| VariÃ¡vel 					| Exemplo 			| Descrição  				|
+| :------------	| :------------------------	| :----------------	| :-----------------------	|
+| id 			| [[id-transacao]] 			| 't-786545s'		| ID da TransaÃ§Ã£o			|
+| revenue 		| [[valor-total-transacao]] | '256.80'	 		| Valor total da transaÃ§Ã£o	|
+
+<br />
+
+*Descrição Produtos:*
+
+| Nome 			| VariÃ¡vel 					| Exemplo 				| Descrição  							|
+| :------------	| :------------------------	| :-----------------	| :------------------------------------	|
+| name 			| [[nome-produto]] 			| 'vibrador-personal-grande'		| Nome do produto 						|
+| id			| [[id-produto]] 			| '12345645'		| ID do produto 						|
+| price			| [[preco-produto]] 		| '30.00'				| Preco do produto						|
+| category 		| [[categoria-produto]] 	| 'vibradores'				| Categoria do produto 					|
+| coupon		| [[cupom-produto]]	 		| '10OFF'	| Cupom de desconto usado no produto	|
+
+<br />
+
+### Enhanced E-commerce
+
+- **Quando:** No carregamento da página de confirmação de pedido - Purchase
+- **Onde:** Na página de pedido
+
+```html
+<script>
+dataLayer.push({
+  'event': 'productImpression',
+	'ecommerce': {
+    'currencyCode': 'BR',                       
+    'impressions': [
+     {
+       'name': 'vibrador-personal-grande',       
+       'id': '12345645',
+       'price': '15.25',
+       'brand': 'Google',
+       'category': 'vibradores',
+       'variant': 'Gray',
+       'list': 'Search Results',
+       'position': 1
+     },
+     {
+       'name': 'anel-peniano',
+       'id': '67890',
+       'price': '33.75',
+       'brand': 'Google',
+       'category': 'acessorios',
+       'variant': 'Black',
+       'list': 'Search Results',
+       'position': 2
+     }]
+  }
+});
+</script>
+```
+
+
+- **Quando:** No clique em um produto da lista
+- **Onde:** Em todas as páginas que exibirem uma lista de produto
+
+
+```html
+<script>
+dataLayer.push({
+ 'event': 'productClick',
+    'ecommerce': {
+      'click': {
+        'actionField': {'list': 'Search Results'},     
+        'products': [{
+           'name': 'vibrador-personal-grande',       
+           'id': '12345645',
+           'price': '15.25',
+           'brand': 'Google',
+           'category': 'vibradores',
+           'variant': 'Gray',
+           'list': 'Search Results',
+           'position': 1n
+         }]
+       }
+     },
+     'eventCallback': function() {
+       document.location = productObj.url
+     }
+  });
+}
+</script>
+```
+
+
+- **Quando:** No carregamento da página de detalhes de produto
+- **Onde:** Na página de detalhes do produto
+
+
+```html
+<script>
+dataLayer.push({
+ 'ecommerce': {
+    'event': 'productDetail': {
+      'actionField': {'list': 'Apparel Gallery'},    // 'detail' actions have an optional list property.
+      'products': [{
+           'name': 'vibrador-personal-grande',       
+           'id': '12345645',
+           'price': '15.25',
+           'brand': 'Google',
+           'category': 'vibradores',
+           'variant': 'Gray',
+       }]
+     }
+   }
+});
+</script>
+```
+
+- **Quando:** Ao adicionar um produto ao carrinho
+- **Onde:** Na página de detalhes do produto e na página de carrinho
+
+
+```html
+<script>
+dataLayer.push({
+ 'ecommerce': {
+    'event': 'addToCart',
+  'ecommerce': {
+    'currencyCode': 'BR',
+    'add': {                                // 'add' actionFieldObject measures.
+      'products': [{                        //  adding a product to a shopping cart.
+           'name': 'vibrador-personal-grande',       
+           'id': '12345645',
+           'price': '15.25',
+           'brand': 'Google',
+           'category': 'vibradores',
+           'variant': 'Gray',
+           'quantity': 1
+       }]
+    }
+  }
+});
+</script>
+```
+
+
+- **Quando:** Ao remover um produto ao carrinho
+- **Onde:** Na página de carrinho
+
+
+```html
+<script>
+dataLayer.push({
+ 'ecommerce': {
+    'event': 'removeFromCart',
+  'ecommerce': {
+    'remove': {                               // 'remove' actionFieldObject measures.
+      'products': [{                          //  removing a product to a shopping cart.
+           'name': 'vibrador-personal-grande',       
+           'id': '12345645',
+           'price': '15.25',
+           'brand': 'Google',
+           'category': 'vibradores',
+           'variant': 'Gray',
+           'quantity': 1
+      }]
+    }
+  }
+});
+</script>
+```
+
+- **Quando:** Nas etapas de checkout
+- **Onde:** Nas páginas de checkout
+
+
+```html
+<script>
+dataLayer.push({
+ 'ecommerce': {
+    'event': 'checkout',
+    'ecommerce': {
+      'checkout': {
+        'actionField': {'step': 1, 'option': 'Visa'},
+        'products': [{
+          'name': 'vibrador-personal-grande',       
+           'id': '12345645',
+           'price': '15.25',
+           'brand': 'Google',
+           'category': 'vibradores',
+           'variant': 'Gray',
+           'quantity': 1
+       }]
+     }
+   },
+   'eventCallback': function() {
+      document.location = 'checkout.html';
+   }
+  });
+}
+</script>
+```
+
+- **Quando:** Ao selecionar um tipo de entrega ou tipo de pagamento
+- **Onde:** Na página de checkout, etapas de pagamento ou entrega
+
+
+```html
+<script>
+dataLayer.push({
+ 'ecommerce': {
+    'event': 'checkoutOption',
+    'ecommerce': {
+      'checkout_option': {
+        'actionField': {'step': step, 'option': checkoutOption}
+      }
+    }
+  });
+}
+</script>
+```
+
+
+
+
 ---
  
  
